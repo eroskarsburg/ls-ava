@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Shared\" />
+    <Folder Include="Services\Professor\Repository\Abstractions\" />
+    <Folder Include="Services\Professor\Service\Abstractions\" />
+    <Folder Include="Shared\Entities\" />
+    <Folder Include="Shared\Enum\" />
+    <Folder Include="Shared\Constants\" />
   </ItemGroup>
 
 </Project>
