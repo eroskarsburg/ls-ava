@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RmK3o6JAK/FcDyPI47erIeDjbbXnG8sdOcYyuRPNyhqlqpXLeEde5T0TvtJbq5JzKO1yrjD7HLGWQ6d3ETuERg==",
+  "dgSpecHash": "vZlSa6g51zlPSkjlcP2rgdmldZYVHQS008m2+yxaoomHP2E/fnBFnUaLUG6wqPtRjCI9xJCzEVWhJCFsKQFWgQ==",
   "success": true,
-  "projectFilePath": "C:\\FaculProjetos\\ls-ava-web\\ls-ava-web\\Web.csproj",
+  "projectFilePath": "C:\\FaculProjetos\\ls-ava\\ls-ava-web\\Web.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
