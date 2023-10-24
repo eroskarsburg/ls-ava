@@ -36,11 +36,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\RodoProjetos\\APIS\\rodowsnovofluxo\\packages": {},
-        "C:\\RodoProjetos\\ECOMMERCE\\vendarodoviarianew\\Desenvolvimento\\packages": {},
-        "\\\\192.168.0.11\\Desenvolvimento\\Nuget-Rodosoft\\Projetos": {},
-        "\\\\192.168.0.11\\Publico\\Nicolas\\bpecentral\\packages": {},
-        "\\\\192.168.0.11\\Publico\\packagesRodoCheckinAPI\\packages": {},
+        "G:\\Drives compartilhados\\Desenvolvimento\\Nuget-Rodosoft\\Projetos": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
