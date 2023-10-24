@@ -7,10 +7,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\Professor\Repository\Abstractions\" />
-    <Folder Include="Services\Professor\Service\Abstractions\" />
-    <Folder Include="Shared\Entities\" />
-    <Folder Include="Shared\Enum\" />
+    <Folder Include="Services\Alunos\Repository\Querys\" />
+    <Folder Include="Services\Arquivos\Repository\Abstractions\" />
+    <Folder Include="Services\Arquivos\Repository\Querys\" />
+    <Folder Include="Services\Arquivos\Service\Abstractions\" />
+    <Folder Include="Services\Cursos\Repository\Abstractions\" />
+    <Folder Include="Services\Cursos\Repository\Querys\" />
+    <Folder Include="Services\Cursos\Service\Abstractions\" />
+    <Folder Include="Services\Disciplinas\Repository\Abstractions\" />
+    <Folder Include="Services\Disciplinas\Repository\Querys\" />
+    <Folder Include="Services\Disciplinas\Service\Abstractions\" />
+    <Folder Include="Services\Notas\Repository\Abstractions\" />
+    <Folder Include="Services\Notas\Repository\Querys\" />
+    <Folder Include="Services\Notas\Service\Abstractions\" />
+    <Folder Include="Services\Professores\Repository\Abstractions\" />
+    <Folder Include="Services\Professores\Repository\Querys\" />
+    <Folder Include="Services\Professores\Service\Abstractions\" />
+    <Folder Include="Services\Turmas\Repository\Abstractions\" />
+    <Folder Include="Services\Turmas\Repository\Querys\" />
+    <Folder Include="Services\Turmas\Service\Abstractions\" />
     <Folder Include="Shared\Constants\" />
   </ItemGroup>
 
