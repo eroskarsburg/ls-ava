@@ -29,4 +29,9 @@
     <Folder Include="Shared\Constants\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.1.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
+  </ItemGroup>
+
 </Project>
