@@ -13,7 +13,7 @@ namespace ls_ava_web.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Home()
         {
             return View();
         }
