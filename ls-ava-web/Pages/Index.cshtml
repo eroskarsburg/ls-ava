@@ -1,0 +1,38 @@
+﻿@page
+@model ls_ava_web.Pages.LoginModel
+@{
+    ViewData["Title"] = "Login";
+    @section SemMenu { }
+    @section SemFooter { }
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/css/Login/Login.css" rel="stylesheet" type="text/css">
+    <title>Portal do Aluno AVA</title>
+</head>
+<body>
+    <div id="container">
+        <h1>AVA</h1>
+        <h2>Portal do Aluno</h2>
+        <hr>
+        <h2>Entrar</h2>
+        <input type="text" placeholder="Usuário">
+        <input type="password" placeholder="Senha">
+        <a asp-area="" asp-controller="Home" asp-action="Index"><button>Entrar</button></a>
+        <a asp-area="" asp-controller="Login" asp-action="Login">Esqueci a minha senha</a>
+    </div>
+    @if (!ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    <span>@error.ErrorMessage</span>
+                }
+            }
+        </div>
+    }
+</body>

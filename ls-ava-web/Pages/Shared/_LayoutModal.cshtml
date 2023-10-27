@@ -1,0 +1,14 @@
+﻿@{
+    var caminhoCompletoArquivoAtual = ".." + ViewContext.View.Path;
+}
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="@($"{caminhoCompletoArquivoAtual}.css")" />
+</head>
+<body>
+    <div class="">
+        @RenderBody()
+        @await RenderSectionAsync("Scripts", required: false)
+    </div>
+</body>
+</html>
