@@ -280,3 +280,7 @@ FodyWeavers.xsd
 /Application/obj/project.assets.json
 /Application/obj/Application.csproj.nuget.g.props
 /Application/obj/Application.csproj.nuget.dgspec.json
+/.vs/ls-ava-web/FileContentIndex
+/.vs
+/Application
+/ls-ava-web
