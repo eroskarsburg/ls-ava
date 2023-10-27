@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace ls_ava_web.Controllers
 {
-    public class HomeController : Controller
+    public class RecuperarSenhaController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<RecuperarSenhaController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public RecuperarSenhaController(ILogger<RecuperarSenhaController> logger)
         {
             _logger = logger;
         }
