@@ -278,4 +278,8 @@ FodyWeavers.xsd
 /ls-ava-web/bin
 /Application/obj
 /Application/bin
+/WepAppAva/obj
+/WepAppAva/bin
+/WebApp/obj
+/WebApp/bin
 /.vs

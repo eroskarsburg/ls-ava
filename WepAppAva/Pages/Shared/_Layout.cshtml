@@ -1,0 +1,83 @@
+﻿@{
+    bool isAuthenticated = TempData["IsAuthenticated"] as bool? ?? false;
+    var caminhoCompletoArquivoAtual = ".." + ViewContext.View.Path;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ls_ava_web.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/defaultStyle.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/menuLateral.css" asp-append-version="true" />
+    <link rel="stylesheet" href="@($"{caminhoCompletoArquivoAtual}.css")" />
+</head>
+<body>
+    <script rel="stylesheet" src="@($"{caminhoCompletoArquivoAtual}.js")"></script> 
+
+    <div class="container">
+        <main role="main" class="main-container">
+            @RenderSection("SemMenu", required: false)
+            @if (!IsSectionDefined("SemMenu"))
+            {
+                <div class="containerMenu">
+                    @await Html.PartialAsync("MenuLateral")
+                </div>
+            }
+            @RenderBody()
+            @*Modal para avisos*@
+            <div class="modal fade" id="avisosModal" aria-labelledby="avisosModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="avisosModalLabel">Aviso</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="bodyAvisos"></p>
+                            <div class="bodyAcoes"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @*Modal para ações*@
+            <div class="modal fade" id="newModal">
+                <div class="modal-dialog">
+                    <div class="modal-content newModalContent">
+                        <div class="modal-header">
+                            <h4 class="modal-title tituloModalPrincipal" id="tituloModal"></h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="bodyModalAcoes" class="modal-body modalContent newContentModal"></div>
+                    </div>
+                </div>
+            </div>
+            @*Modal para detalhes*@
+            <div class="modal fade" id="detalhesModal">
+                <div class="modal-dialog">
+                    <div class="modal-content newModalContent">
+                        <div class="modal-header">
+                            <h4 class="modal-title tituloModalPrincipal" id="tituloModalDetalhes"></h4>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div id="bodyModalDetalhes" class="modal-body modalContent newContentModal"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Ambiente Escolar Acadêmico - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

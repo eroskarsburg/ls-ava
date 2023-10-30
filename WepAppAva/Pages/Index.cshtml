@@ -1,0 +1,31 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "AVA - Login";
+    @section SemMenu { }
+}
+
+<body>
+    <div id="container">
+        <h1>AVA</h1>
+        <h2>Portal do Aluno</h2>
+        <hr>
+        <h2>Entrar</h2>
+        <input type="text" placeholder="Usuário">
+        <input type="password" placeholder="Senha">
+        <a class="nav-link" href="Home/Home">Entrar</a>
+        <a class="nav-link" href="/ResetSenha">Esqueci a minha senha</a>
+    </div>
+    @if (!ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    <span>@error.ErrorMessage</span>
+                }
+            }
+        </div>
+    }
+</body>
