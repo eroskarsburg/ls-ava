@@ -13,11 +13,6 @@ namespace ls_ava_web.Controllers
             _logger = logger;
         }
 
-        public IActionResult RecuperarSenha()
-        {
-            return View();
-        }
-
         #region [ Services ]
         //[HttpPost]
         //public async Task<IActionResult> PostValidaLogin([FromBody] UsuarioEntidade usuario)

@@ -1,12 +1,10 @@
 ﻿@page
-@model ls_ava_web.Pages.LoginModel
+@model LoginModel
 @{
     ViewData["Title"] = "AVA - Login";
     @section SemMenu { }
-    @section SemFooter { }
 }
 
-<link rel="stylesheet" href="~/@(nameof(Pages_Index)).styles.css" />
 <body>
     <div id="container">
         <h1>AVA</h1>
@@ -15,8 +13,8 @@
         <h2>Entrar</h2>
         <input type="text" placeholder="Usuário">
         <input type="password" placeholder="Senha">
-        <a class="nav-link" asp-area="" asp-page="Home/Home">Entrar</a>
-        <a class="nav-link" asp-area="" asp-page="ResetSenha/RecuperarSenha">Esqueci a minha senha</a>
+        <a class="nav-link" href="Home/Home">Entrar</a>
+        <a class="nav-link" href="/ResetSenha">Esqueci a minha senha</a>
     </div>
     @if (!ModelState.IsValid)
     {

@@ -1,20 +1,30 @@
-﻿html, body {
+html, body {
     height: 100%;
+}
+
+:root {
+    --background-color: #fff;
+    /* Buttons */
+    --button-font-color: #fff;
+    --button-default-color: #007BFF;
+    --button-default-hover-color: #0056b3;
+    /* Inputs */
+    --input-border-color: #ccc;
+    --hfont-default-color: #333;
 }
 
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('https://www.youbilingue.com.br/blog/wp-content/uploads/2019/04/4-tendências-de-uma-escola-do-futuro.png');
+    background-image: url('https://www.youbilingue.com.br/blog/wp-content/uploads/2019/04/4-tendencias-de-uma-escola-do-futuro.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    display: flex;
 }
 
 #container {
-    background-color: #fff;
+    background-color: var(--background-color);
     border-radius: 10px;
     width: 300px;
     height: 420px;
@@ -27,12 +37,12 @@ body {
 
 h1 {
     font-size: 36px;
-    color: #333;
+    color: var(--hfont-default-color);
 }
 
 h2 {
     font-size: 24px;
-    color: #333;
+    color: var(--hfont-default-color);
 }
 
 input[type="text"],
@@ -40,25 +50,25 @@ input[type="password"] {
     width: 80%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ccc;
+    border: 1px solid var(--input-border-color);
     border-radius: 5px;
 }
 
 button {
     width: 87%;
     padding: 10px;
-    background-color: #007BFF;
-    color: #fff;
+    background-color: var(--button-default-color);
+    color: var(--button-font-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
     button:hover {
-        background-color: #0056b3;
+        background-color: var(--button-default-hover-color);
     }
 
 a {
     text-decoration: none;
-    color: #007BFF;
+    color: var(--button-default-color);
 }
