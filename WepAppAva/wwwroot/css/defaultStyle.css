@@ -2,6 +2,18 @@ html {
   font-size: 14px;
 }
 
+:root {
+    --background-color: #fff;
+    --background-color-sidebar: 
+    /* Buttons */
+    --button-font-color: #fff;
+    --button-default-color: #007BFF;
+    --button-default-hover-color: #0056b3;
+    /* Inputs */
+    --input-border-color: #ccc;
+    --hfont-default-color: #333;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -14,10 +26,15 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: none;
 }
 
 .main-container {
     padding-bottom: 1rem !important;
     display: flex !important;
+}
+
+.container {
+    max-width: none !important;
 }

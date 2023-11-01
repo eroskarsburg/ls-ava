@@ -1,11 +1,11 @@
 .containerMenuLateral {
     left: 0;
-    background: var(--cor-fundo-menu);
+    background: var(--hfont-default-color);
     height: 100%;
     padding: 1rem 2rem;
 }
 
     .containerMenuLateral a {
-        color: var(--cor-font-primaria);
+        color: var(--hfont-default-color);
         font-size: 1.2rem;
     }
