@@ -19,6 +19,14 @@
 <body>
     <script rel="stylesheet" src="@($"{caminhoCompletoArquivoAtual}.js")"></script> 
 
+    @RenderSection("SemCabecalho", required: false)
+    @if (!IsSectionDefined("SemCabecalho"))
+    {
+        <div class="containerMenu">
+            @await Html.PartialAsync("Cabecalho")
+        </div>
+    }
+
     <div class="container">
         <main role="main" class="main-container">
             @RenderSection("SemMenu", required: false)
@@ -70,7 +78,7 @@
             </div>
         </main>
     </div>
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted fixed-bottom">
         <div class="container">
             &copy; 2023 - Ambiente Escolar Acadêmico - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

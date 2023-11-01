@@ -2,21 +2,10 @@
     height: 100%;
 }
 
-:root {
-    --background-color: #fff;
-    /* Buttons */
-    --button-font-color: #fff;
-    --button-default-color: #007BFF;
-    --button-default-hover-color: #0056b3;
-    /* Inputs */
-    --input-border-color: #ccc;
-    --hfont-default-color: #333;
-}
-
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-image: url('https://www.youbilingue.com.br/blog/wp-content/uploads/2019/04/4-tendencias-de-uma-escola-do-futuro.png');
+    background-image: url('https://trello.com/1/cards/6542920a5e1ffe2547f3f201/attachments/654292175e742e67fbd37015/previews/654292185e742e67fbd37050/download/login-background-img.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -71,4 +60,8 @@ button {
 a {
     text-decoration: none;
     color: var(--button-default-color);
+}
+
+.dimention {
+    width: 100% !important;
 }
