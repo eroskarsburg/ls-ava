@@ -1,17 +1,81 @@
-﻿using System.Data;
+﻿using MySql.Data.MySqlClient;
 
 namespace Application.Shared.Context
 {
-    internal class DbContext
+    public class DbContext
     {
-        //public IDbConnection connection;
-        //public ISQLQuerys sqlQuery;
-        //public ISQLCommands sqlCommand;
-        //public DbContext(IDbConnection connection, ISQLQuerys siapQuery, ISQLCommands siapCommand)
-        //{
-        //    this.connection = connection ?? throw new ArgumentNullException(nameof(DbContext.connection));
-        //    this.sqlQuery = siapQuery ?? throw new ArgumentNullException(nameof(sqlQuery));
-        //    this.sqlCommand = siapCommand ?? throw new ArgumentNullException(nameof(sqlCommand));
-        //}
+        public MySqlConnection connection;
+        Banco banco = new Banco();
+
+        public void DBConnect()
+        {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
+            Banco banco = new Banco();
+
+            banco.HostMySql = "192.168.0.164";
+            banco.DataBaseMySql = "avaDbCentral";
+            banco.UsernameMySql = "eros";
+            banco.PasswordMySql = "102030";
+
+            string dataResponse;
+            dataResponse = "SERVER=" + banco.HostMySql + ";" + "DATABASE=" +
+            banco.DataBaseMySql + ";" + "UID=" + banco.UsernameMySql + ";" + "PASSWORD=" + banco.PasswordMySql + ";";
+
+            try
+            {
+                connection = new MySqlConnection();
+                connection.ConnectionString = dataResponse;
+                //connection.Open();
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                throw;
+            }
+        }
+
+        public bool OpenConnection()
+        {
+            try
+            {
+                connection.Open();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                switch (ex.Number)
+                {
+                    case 0:
+                        Console.WriteLine("Cannot connect to server.  Contact administrator");
+                        break;
+
+                    case 1045:
+                        Console.WriteLine("Invalid username/password, please try again");
+                        break;
+                }
+                return false;
+            }
+
+        }
+
+        public bool CloseConnection()
+        {
+            try
+            {
+                connection.Close();
+                return true;
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                return false;
+            }
+        }
     }
 }

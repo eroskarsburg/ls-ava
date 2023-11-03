@@ -4,14 +4,11 @@ using System.Data;
 
 namespace Application.Services.Alunos.Repository.Querys
 {
-    internal class AlunoQuerys
+    public class AlunoQuerys
     {
-        public List<Aluno> SelectAlunos()
+        public string SelectAllAlunos()
         {
-            List<Aluno> alunos = new List<Aluno>();
-            
-
-            return alunos;
+            return "";
         }
     }
 }

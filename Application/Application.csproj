@@ -22,10 +22,12 @@
     <Folder Include="Services\Notas\Service\Abstractions\" />
     <Folder Include="Services\Professores\Repository\Abstractions\" />
     <Folder Include="Services\Professores\Repository\Querys\" />
-    <Folder Include="Services\Professores\Service\Abstractions\" />
     <Folder Include="Services\Turmas\Repository\Abstractions\" />
     <Folder Include="Services\Turmas\Repository\Querys\" />
     <Folder Include="Services\Turmas\Service\Abstractions\" />
+    <Folder Include="Services\Usuarios\Repository\Abstractions\" />
+    <Folder Include="Services\Usuarios\Repository\Querys\" />
+    <Folder Include="Services\Usuarios\Service\" />
     <Folder Include="Shared\Constants\" />
   </ItemGroup>
 
