@@ -15,7 +15,7 @@ namespace Application.Services.Usuarios.Repository
             _dbContext = dbContext;
         }
 
-        public List<UsuarioLogin> RetornaUsuarios()
+        public static List<UsuarioLogin> RetornaUsuarios()
         {
             StringBuilder sb = new StringBuilder();
 
@@ -24,8 +24,8 @@ namespace Application.Services.Usuarios.Repository
             List<UsuarioLogin> listaUsuarios = new List<UsuarioLogin>();
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -44,7 +44,7 @@ namespace Application.Services.Usuarios.Repository
                 return listaUsuarios;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool InserirLogin(UsuarioLogin usuario)
@@ -55,13 +55,13 @@ namespace Application.Services.Usuarios.Repository
             sb.AppendLine($"VALUES ({usuario.Login!.ToString()}, {usuario.Senha!.ToString()}, {usuario.NivelAcesso})");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool DeletarUsuario(string login)
@@ -71,13 +71,13 @@ namespace Application.Services.Usuarios.Repository
             sb.AppendLine($"DELETE FROM usuario WHERE login={login}");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
     }
 }

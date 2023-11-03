@@ -23,8 +23,8 @@ namespace Application.Services.Professores.Repository
             List<Professor> listaProfessores = new List<Professor>();
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -44,7 +44,7 @@ namespace Application.Services.Professores.Repository
                 return listaProfessores;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool InserirProfessor(Professor professor)
@@ -55,13 +55,13 @@ namespace Application.Services.Professores.Repository
             sb.AppendLine($"VALUES ({professor.Nome?.ToString()}, {professor.Registro?.ToString()}, {professor.Cpf?.ToString()}, {professor.Email?.ToString()})");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool AtualizarProfessor(Professor professor)
@@ -76,14 +76,14 @@ namespace Application.Services.Professores.Repository
             sb.AppendLine($"WHERE id={professor.Id}");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
-                _dbContext.CloseConnection();
+                DbContext.CloseConnection();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool DeletarProfessor(string registro)
@@ -93,13 +93,13 @@ namespace Application.Services.Professores.Repository
             sb.AppendLine($"DELETE FROM professor WHERE registro={registro.ToString()}");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
     }
 }

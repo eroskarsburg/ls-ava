@@ -4,15 +4,15 @@ namespace Application.Shared.Context
 {
     public class DbContext
     {
-        public MySqlConnection connection;
+        public static MySqlConnection connection;
         Banco banco = new Banco();
 
-        public void DBConnect()
+        public static void DBConnect()
         {
             Initialize();
         }
 
-        public void Initialize()
+        public static void Initialize()
         {
             Banco banco = new Banco();
 
@@ -39,7 +39,7 @@ namespace Application.Shared.Context
             }
         }
 
-        public bool OpenConnection()
+        public static bool OpenConnection()
         {
             try
             {
@@ -63,7 +63,7 @@ namespace Application.Shared.Context
 
         }
 
-        public bool CloseConnection()
+        public static bool CloseConnection()
         {
             try
             {

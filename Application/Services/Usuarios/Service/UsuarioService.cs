@@ -12,9 +12,9 @@ namespace Application.Services.Usuarios.Service
             _usuarioRepository = usuarioRepository;
         }
 
-        public List<UsuarioLogin> ReturnUsuario()
+        public static List<UsuarioLogin> ReturnUsuario()
         {
-            try { return _usuarioRepository.RetornaUsuarios(); }
+            try { return UsuarioRepository.RetornaUsuarios(); }
             catch (Exception e) { throw new Exception(e.Message); }
         }
     }

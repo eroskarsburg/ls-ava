@@ -7,11 +7,11 @@ namespace Application.Services.Alunos.Repository
 {
     public class AlunoRepository
     {
-        private readonly DbContext _dbContext;
+        private readonly DbContext DbContext;
 
         public AlunoRepository(DbContext dbContext)
         {
-            _dbContext = dbContext;
+            DbContext = dbContext;
         }
 
         public List<Aluno> RetornaAlunos()
@@ -23,8 +23,8 @@ namespace Application.Services.Alunos.Repository
             List<Aluno> listaAlunos = new List<Aluno>();
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -45,7 +45,7 @@ namespace Application.Services.Alunos.Repository
                 return listaAlunos;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool InserirAluno(Aluno aluno)
@@ -56,13 +56,13 @@ namespace Application.Services.Alunos.Repository
             sb.AppendLine($"VALUES ({aluno.Nome?.ToString()}, {aluno.Cpf?.ToString()}, {aluno.Matricula}, {aluno.Telefone?.ToString()}, {aluno.Email?.ToString()})");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool AtualizarAluno(Aluno aluno)
@@ -78,14 +78,14 @@ namespace Application.Services.Alunos.Repository
             sb.AppendLine($"WHERE id={aluno.Matricula}");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
-                _dbContext.CloseConnection();
+                DbContext.CloseConnection();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
 
         public bool DeletarAluno(string matricula)
@@ -95,13 +95,13 @@ namespace Application.Services.Alunos.Repository
             sb.AppendLine($"DELETE FROM aluno WHERE matricula={matricula.ToString()}");
             try
             {
-                _dbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), _dbContext.connection);
+                DbContext.OpenConnection();
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception) { throw; }
-            finally { _dbContext.CloseConnection(); }
+            finally { DbContext.CloseConnection(); }
         }
     }
 }

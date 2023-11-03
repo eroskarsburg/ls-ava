@@ -21,8 +21,8 @@ namespace WepAppAva.Pages
 
         public async Task<IActionResult> OnGet()
         {
-            _dbContext.DBConnect();
-            List<UsuarioLogin> usuario = _service.ReturnUsuario();
+            DbContext.DBConnect();
+            List<UsuarioLogin> usuario = UsuarioService.ReturnUsuario();
             Usuarios = usuario;
             return Page();
         }
