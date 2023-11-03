@@ -2,12 +2,12 @@
 
 namespace Application.Shared.Enum
 {
-    internal enum NivelAcesso
+    public enum NivelAcesso
     {
         [Description("Administrador")]
         Administrador = 0,
-        [Description("Coordenador")]
-        Coordenador = 1,
+        [Description("Professor")]
+        Professor = 1,
         [Description("Aluno")]
         Aluno = 2
     }

@@ -6,6 +6,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddControllersWithViews();
 
+builder.Services.AddMvc().AddControllersAsServices();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())

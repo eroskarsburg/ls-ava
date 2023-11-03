@@ -3,24 +3,24 @@ using Application.Shared.Entities;
 using MySql.Data.MySqlClient;
 using System.Text;
 
-namespace Application.Services.Alunos.Repository
+namespace Application.Services.Professores.Repository
 {
-    public class AlunoRepository
+    public class ProfessorRepository
     {
         private readonly DbContext _dbContext;
 
-        public AlunoRepository(DbContext dbContext)
+        public ProfessorRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public List<Aluno> RetornaAlunos()
+        public List<Professor> RetornaProfessores()
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("SELECT id, nome, cpf, matricula, telefone, email, id_nivel_acesso FROM aluno");
+            sb.AppendLine("SELECT id, nome, registro, cpf, email FROM professor");
 
-            List<Aluno> listaAlunos = new List<Aluno>();
+            List<Professor> listaProfessores = new List<Professor>();
             try
             {
                 _dbContext.OpenConnection();
@@ -28,32 +28,31 @@ namespace Application.Services.Alunos.Repository
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
-                    Aluno aluno = new()
+                    Professor professor = new()
                     {
                         Id = int.Parse(dataReader["id"].ToString()!),
                         Nome = dataReader["nome"].ToString(),
+                        Registro = dataReader["registro"].ToString(),
                         Cpf = dataReader["cpf"].ToString(),
-                        Matricula = int.Parse(dataReader["matricula"].ToString()!),
-                        Telefone = dataReader["telefone"].ToString(),
                         Email = dataReader["email"].ToString()
                     };
 
-                    listaAlunos.Add(aluno);
+                    listaProfessores.Add(professor);
                 }
                 dataReader.Close();
 
-                return listaAlunos;
+                return listaProfessores;
             }
             catch (Exception) { throw; }
             finally { _dbContext.CloseConnection(); }
         }
 
-        public bool InserirAluno(Aluno aluno)
+        public bool InserirProfessor(Professor professor)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("INSERT INTO aluno (nome, cpf, matricula, telefone, email)");
-            sb.AppendLine($"VALUES ({aluno.Nome?.ToString()}, {aluno.Cpf?.ToString()}, {aluno.Matricula}, {aluno.Telefone?.ToString()}, {aluno.Email?.ToString()})");
+            sb.AppendLine("INSERT INTO aluno (nome, registro, cpf, email)");
+            sb.AppendLine($"VALUES ({professor.Nome?.ToString()}, {professor.Registro?.ToString()}, {professor.Cpf?.ToString()}, {professor.Email?.ToString()})");
             try
             {
                 _dbContext.OpenConnection();
@@ -65,17 +64,16 @@ namespace Application.Services.Alunos.Repository
             finally { _dbContext.CloseConnection(); }
         }
 
-        public bool AtualizarAluno(Aluno aluno)
+        public bool AtualizarProfessor(Professor professor)
         {
             StringBuilder sb = new StringBuilder();
 
             sb.AppendLine("UPDATE aluno SET");
-            sb.AppendLine($"nome='{aluno.Nome}',");
-            sb.AppendLine($"cpf='{aluno.Cpf}',");
-            sb.AppendLine($"matricula={aluno.Matricula},");
-            sb.AppendLine($"telefone='{aluno.Telefone}',");
-            sb.AppendLine($"email='{aluno.Email}',");
-            sb.AppendLine($"WHERE id={aluno.Matricula}");
+            sb.AppendLine($"nome='{professor.Nome}',");
+            sb.AppendLine($"registro={professor.Registro},");
+            sb.AppendLine($"cpf='{professor.Cpf}',");
+            sb.AppendLine($"email='{professor.Email}',");
+            sb.AppendLine($"WHERE id={professor.Id}");
             try
             {
                 _dbContext.OpenConnection();
@@ -88,11 +86,11 @@ namespace Application.Services.Alunos.Repository
             finally { _dbContext.CloseConnection(); }
         }
 
-        public bool DeletarAluno(string matricula)
+        public bool DeletarProfessor(string registro)
         {
             StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine($"DELETE FROM aluno WHERE matricula={matricula.ToString()}");
+            sb.AppendLine($"DELETE FROM professor WHERE registro={registro.ToString()}");
             try
             {
                 _dbContext.OpenConnection();
