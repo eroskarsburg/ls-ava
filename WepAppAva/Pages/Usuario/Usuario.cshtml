@@ -1,0 +1,61 @@
+﻿@page
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Home page";
+    bool contemUsuario = Model.Usuarios!.Count > 0;
+}
+
+<link rel="stylesheet" href="~/css/login/login.css">
+<div class="text-center dimention">
+    <h1 class="display-4">Usuários</h1>
+    <p></p>
+    <div id="container-table">
+        @if (contemUsuario)
+        {
+            <button class="btn" type="button" onclick="">Adicionar Usuário</button>
+        }
+        <table id="tblResultado">
+            <thead>
+                <tr>
+                    @if (contemUsuario)
+                    {
+                        <th data-orderable="false">Id</th>
+                        <th data-orderable="false">Nome</th>
+                        <th data-orderable="false">Login</th>
+                        <th data-orderable="false">Nivel de Acesso</th>
+                        @* @if (acessoPermitiro)
+                    {
+                    } *@
+                    }
+                    else
+                    {
+                        <th data-orderable="false"></th>
+                    }
+                    <th data-orderable="false"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (contemUsuario)
+                {
+                    @foreach (var usuarios in Model.Usuarios)
+                    {
+                        <tr>
+                            <td>@usuarios.Id</td>
+                            <td>@usuarios.Login</td>
+                            <td>@usuarios.Senha</td>
+                            <td>@usuarios.NivelAcesso</td>
+                            <td><button class="btn" onclick="">Detalhes</button></td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>Sem projetos cadastrados no momento</td>
+                        <td><button class="btn" onclick="">Detalhes</button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
