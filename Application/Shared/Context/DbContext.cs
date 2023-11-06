@@ -15,15 +15,8 @@ namespace Application.Shared.Context
         public static void Initialize()
         {
             Banco banco = new Banco();
-
-            banco.HostMySql = "192.168.0.164";
-            banco.DataBaseMySql = "avaDbCentral";
-            banco.UsernameMySql = "eros";
-            banco.PasswordMySql = "102030";
-
-            string dataResponse;
-            dataResponse = "SERVER=" + banco.HostMySql + ";" + "DATABASE=" +
-            banco.DataBaseMySql + ";" + "UID=" + banco.UsernameMySql + ";" + "PASSWORD=" + banco.PasswordMySql + ";";
+            string dataResponse = $"server=localhost;user id=root;password=Amister@9958;persist security info=False;database=ava_db;";
+            //string dataResponse = $"server=192.168.0.164;user id=eros;password=102030;persist security info=False;database=ava_db;";
 
             try
             {
