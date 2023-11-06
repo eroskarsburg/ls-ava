@@ -25,7 +25,7 @@ namespace Application.Services.Usuarios.Repository
             try
             {
                 DbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.Connection);
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.Read())
                 {
@@ -56,7 +56,7 @@ namespace Application.Services.Usuarios.Repository
             try
             {
                 DbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.Connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -72,7 +72,7 @@ namespace Application.Services.Usuarios.Repository
             try
             {
                 DbContext.OpenConnection();
-                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.connection);
+                MySqlCommand cmd = new MySqlCommand(sb.ToString(), DbContext.Connection);
                 cmd.ExecuteNonQuery();
                 return true;
             }
