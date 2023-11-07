@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="@($"{caminhoCompletoArquivoAtual}.css")" />
 </head>
 <body>
-    <script rel="stylesheet" src="@($"{caminhoCompletoArquivoAtual}.js")"></script> 
+    <script rel="stylesheet" src="@($"{caminhoCompletoArquivoAtual}.js")"></script>
 
     @RenderSection("SemCabecalho", required: false)
     @if (!IsSectionDefined("SemCabecalho"))
@@ -76,13 +76,15 @@
                     </div>
                 </div>
             </div>
-        </main>
+        </main> 
     </div>
-    <footer class="border-top footer text-muted fixed-bottom">
-        <div class="container">
-            &copy; 2023 - Ambiente Escolar Acadêmico - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+
+    @* <footer class="border-top footer text-muted fixed-bottom">
+    <div class="container">
+    &copy; 2023 - Ambiente Escolar Acadêmico - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer> *@
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

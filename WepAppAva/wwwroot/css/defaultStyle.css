@@ -31,10 +31,29 @@ body {
 }
 
 .main-container {
-    padding-bottom: 1rem !important;
     display: flex !important;
 }
 
 .container {
+    padding: 0;
     max-width: none !important;
+}
+
+.dft-header-title {
+    text-align: center;
+    padding: 45px 0px;
+}
+
+.card-columns {
+    @include media-breakpoint-only(lg) {
+        column-count: 4;
+    }
+
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+}
+
+.card{
+    margin: 0px 10px !important;
 }
