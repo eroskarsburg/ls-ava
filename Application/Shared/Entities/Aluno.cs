@@ -10,5 +10,6 @@ namespace Application.Shared.Entities
         public int Matricula { get; set; }
         public string? Telefone { get; set; }
         public string? Email { get; set; }
+        public Dictionary<int, List<Disciplina>>? DisciplinasPorModulo;
     }
 }

@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Application.Services.Usuarios.Repository
 {
-    public class UsuarioRepository
+    public class DisciplinaRepository
     {
         private readonly DbContext _dbContext;
 
-        public UsuarioRepository(DbContext dbContext)
+        public DisciplinaRepository(DbContext dbContext)
         {
             _dbContext = dbContext;
         }

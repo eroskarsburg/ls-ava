@@ -8,9 +8,9 @@ namespace Application.Services.Professores.Service
     public class ProfessorService : IProfessorService
     {
         private readonly ProfessorRepository _professorRepository;
-        private readonly UsuarioRepository _usuarioRepository;
+        private readonly DisciplinaRepository _usuarioRepository;
 
-        public ProfessorService(ProfessorRepository professorRepository, UsuarioRepository usuarioRepository)
+        public ProfessorService(ProfessorRepository professorRepository, DisciplinaRepository usuarioRepository)
         {
             _professorRepository = professorRepository;
             _usuarioRepository = usuarioRepository;

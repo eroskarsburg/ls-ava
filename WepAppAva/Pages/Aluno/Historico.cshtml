@@ -1,0 +1,53 @@
+﻿@page
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Histórico";
+}
+
+<link rel="stylesheet" href="~/css/login/login.css">
+<div class="text-center dimention">
+    <h1 class="display-4">Usuários</h1>
+    <p></p>
+    <div id="container-table">
+        <table id="tblResultado">
+            <tbody>
+                @if (contemUsuario)
+                {
+                    @foreach (var modulo in Aluno.Modulos)
+                    {
+                        <tr>
+                            <td><span>Módulo </span>modulo.Id</td>
+                            <td>modulo.Nome</td>
+                        </tr>
+                        <tr>
+                            <td>Disciplina</td>
+                            <td>Requisitos</td>
+                            <td>Situação</td>
+                            <td>Carga Horária</td>
+                            <td>Nota</td>
+                        </tr>
+                        @foreach (var disciplina in Aluno.Disciplinas)
+                        {
+                            @if (disciplina.IdModulo == modulo.Id)
+                            {
+                                <tr>
+                                    <td>disciplina.Nome</td>
+                                    <td>disciplina.Requisitos</td>
+                                    <td>disciplina.Situacao</td>
+                                    <td>disciplina.CargaHoraria</td>
+                                    <td>disciplina.Nota</td>
+                                </tr>
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td>Ops! Histórico indisponível no momento.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
