@@ -1,6 +1,4 @@
-﻿using Application.Shared.Enum;
-
-namespace Application.Shared.Entities
+﻿namespace Application.Shared.Entities
 {
     public class Aluno
     {

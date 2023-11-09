@@ -1,5 +1,4 @@
-﻿using Application.Services.Usuarios.Repository;
-using Application.Services.Usuarios.Service;
+﻿using Application.Services.Usuarios.Service;
 using Application.Shared.Context;
 using Application.Shared.Entities;
 using Microsoft.AspNetCore.Mvc;

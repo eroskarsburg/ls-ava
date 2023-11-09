@@ -8,10 +8,10 @@ namespace WepAppAva.Pages
 {
     public class HistoricoModel : PageModel
     {
-        private readonly ILogger<UsuarioModel> _logger;
+        private readonly ILogger<HistoricoModel> _logger;
         public Dictionary<int, List<Disciplina>>? DisciplinasPorModulo;
 
-        public HistoricoModel(ILogger<UsuarioModel> logger)
+        public HistoricoModel(ILogger<HistoricoModel> logger)
         {
             _logger = logger;
         }

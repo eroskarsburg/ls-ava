@@ -1,55 +1,69 @@
 ﻿@page
+@using WebApp.Shared.Enum;
+@using WebApp.WebService;
 @model HistoricoModel
 @{
     ViewData["Title"] = "Histórico";
     bool contemDisciplinas = Model.DisciplinasPorModulo!.Count > 0;
+    Enumerations en = new Enumerations();
 }
 
 <link rel="stylesheet" href="~/css/login/login.css">
-<div class="text-center dimention">
+<div class="container-lg container-default">
     <div class="dft-header-title">
         <h1>@ViewData["Title"]</h1>
     </div>
-    <div id="container-table">
-        <table id="tblResultado">
-            <tbody>
-                @if (contemDisciplinas)
+    <div class="container-table">
+        <div class="table100 ver1 m-b-110">
+            @if (contemDisciplinas)
+            {
+                @foreach (var modulo in Model.DisciplinasPorModulo)
                 {
-                    @foreach (var modulo in Model.DisciplinasPorModulo)
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="ver-main cell100 column1"><span>Módulo </span>@modulo.Key<span>: @en.ReturnDescriptionModulo(modulo.Key)</span></th>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="table100-head">
+                        <table>
+                            <thead>
+                                <tr class="row100 head">
+                                    <th class="cell100 column1">Disciplina</th>
+                                    <th class="cell100 column2">Requisitos</th>
+                                    <th class="cell100 column3">Situação</th>
+                                    <th class="cell100 column4">Carga Horária</th>
+                                    <th class="cell100 column5">Nota</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    foreach (var disciplina in modulo.Value)
                     {
-                        <tr>
-                            <td><span>Módulo </span>modulo.Id</td>
-                            <td>modulo.Nome</td>
-                        </tr>
-                        <tr>
-                            <td>Disciplina</td>
-                            <td>Requisitos</td>
-                            <td>Situação</td>
-                            <td>Carga Horária</td>
-                            <td>Nota</td>
-                        </tr>
-                        @foreach (var disciplina in modulo.Value)
-                        {
-                            <tr>
-                                <td>disciplina.Nome</td>
-                                <td>disciplina.Requisitos</td>
-                                <td>disciplina.Situacao</td>
-                                <td>disciplina.CargaHoraria</td>
-                                <td>disciplina.Nota</td>
-                            </tr>
-                            @* @if (disciplina.IdModulo == modulo.Id)
-                {
-                } *@
-                        }
+                        <div class="table100-body">
+                            <table>
+                                <tbody>
+                                    <tr class="row100 body">
+                                        <td class="cell100 column1">@disciplina.NomeDisciplina</td>
+                                        <td class="cell100 column2">@disciplina.Requisitos</td>
+                                        <td class="cell100 column3">@disciplina.Situacao</td>
+                                        <td class="cell100 column4">@disciplina.CargaHoraria</td>
+                                        <td class="cell100 column5">@disciplina.Nota</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     }
                 }
-                else
-                {
-                    <tr>
-                        <td>Ops! Histórico indisponível no momento.</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+            }
+            else
+            {
+                <div>
+                    <span>Ops! Histórico indisponível no momento.</span>
+                </div>
+            }
+        </div>
     </div>
 </div>

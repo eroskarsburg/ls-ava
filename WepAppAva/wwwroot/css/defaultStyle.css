@@ -39,9 +39,18 @@ body {
     max-width: none !important;
 }
 
+.container-default {
+    margin-left: 280px;
+}
+
 .dft-header-title {
     text-align: center;
     padding: 45px 0px;
+}
+
+.sidebar-dft {
+    width: 280px;
+    position: fixed;
 }
 
 .card-columns {

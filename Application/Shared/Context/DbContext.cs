@@ -10,8 +10,8 @@ namespace Application.Shared.Context
 
         public static void Initialize()
         {
-            string dataResponse = $"server=localhost;user id=root;password=Amister@9958;persist security info=False;database=ava_db;";
-            //string dataResponse = $"server=192.168.0.164;user id=eros;password=102030;persist security info=False;database=ava_db;";
+            //string dataResponse = $"server=localhost;user id=root;password=Amister@9958;persist security info=False;database=ava_db;";
+            string dataResponse = $"server=192.168.0.164;user id=eros;password=102030;persist security info=False;database=ava_db;";
             try
             {
                 Connection = new MySqlConnection();

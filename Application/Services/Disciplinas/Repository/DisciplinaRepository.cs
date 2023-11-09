@@ -35,16 +35,14 @@ namespace Application.Services.Disciplinas.Repository
                             Nome = dataReader["nome_modulo"].ToString()
                         };
 
-                        Disciplina disciplina = new Disciplina
-                        {
-                            Id = (int)dataReader["id_disciplina"],
-                            IdModulo = (int)dataReader["id_modulo"],
-                            NomeDisciplina = dataReader["nome_disciplina"].ToString(),
-                            Requisitos = dataReader["requisitos"].ToString(),
-                            Situacao = dataReader["situacao"].ToString(),
-                            CargaHoraria = (int)dataReader["carga_horaria"],
-                            Nota = (float)dataReader["nota"]
-                        };
+                        Disciplina disciplina = new Disciplina();
+                        disciplina.Id = int.TryParse(dataReader["id_disciplina"].ToString(), out int id) ? id : 0;
+                        disciplina.IdModulo = int.TryParse(dataReader["id_modulo"].ToString(), out int idmodulo) ? idmodulo : 0;
+                        disciplina.NomeDisciplina = dataReader["nome_disciplina"].ToString() ?? string.Empty;
+                        disciplina.Requisitos = dataReader["requisitos"].ToString() ?? string.Empty;
+                        disciplina.Situacao = dataReader["situacao"].ToString() ?? string.Empty;
+                        disciplina.CargaHoraria = int.TryParse(dataReader["carga_horaria"].ToString(), out int cargaHoraria) ? cargaHoraria : 0;
+                        disciplina.Nota = float.TryParse(dataReader["nota"].ToString(), out float nota) ? nota : 0;
 
                         int idModulo = modulo.Id;
 
@@ -55,17 +53,8 @@ namespace Application.Services.Disciplinas.Repository
 
                         aluno.DisciplinasPorModulo[idModulo].Add(disciplina);
                     }
-
-                    foreach (var kvp in aluno.DisciplinasPorModulo)
-                    {
-                        Console.WriteLine($"Módulo: {kvp.Key}");
-                        foreach (var disciplina in kvp.Value)
-                        {
-                            Console.WriteLine($"IdDisciplina: {disciplina.Id}, NomeDisciplina: {disciplina.NomeDisciplina}");
-                        }
-                    }
+                    dataReader.Close();
                 }
-                dataReader.Close();
                 return aluno.DisciplinasPorModulo!;
             }
             catch (Exception e) { throw new Exception(e.Message); }
