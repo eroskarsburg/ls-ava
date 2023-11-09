@@ -5,16 +5,16 @@ namespace Application.Services.Usuarios.Service
 {
     public class UsuarioService
     {
-        private readonly DisciplinaRepository _usuarioRepository;
+        private readonly UsuarioRepository _usuarioRepository;
 
-        public UsuarioService(DisciplinaRepository usuarioRepository)
+        public UsuarioService(UsuarioRepository usuarioRepository)
         {
             _usuarioRepository = usuarioRepository;
         }
 
         public static List<UsuarioLogin> ReturnUsuario()
         {
-            try { return DisciplinaRepository.RetornaUsuarios(); }
+            try { return UsuarioRepository.RetornaUsuarios(); }
             catch (Exception e) { throw new Exception(e.Message); }
         }
     }

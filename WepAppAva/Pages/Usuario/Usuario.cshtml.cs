@@ -9,8 +9,6 @@ namespace WepAppAva.Pages
 {
     public class UsuarioModel : PageModel
     {
-        private readonly DbContext _dbContext;
-        private readonly UsuarioService _service;
         private readonly ILogger<UsuarioModel> _logger;
         public List<UsuarioLogin>? Usuarios { get; set; }
 

@@ -16,7 +16,6 @@
     <Folder Include="Services\Cursos\Service\Abstractions\" />
     <Folder Include="Services\Disciplinas\Repository\Abstractions\" />
     <Folder Include="Services\Disciplinas\Repository\Querys\" />
-    <Folder Include="Services\Disciplinas\Service\Abstractions\" />
     <Folder Include="Services\Notas\Repository\Abstractions\" />
     <Folder Include="Services\Notas\Repository\Querys\" />
     <Folder Include="Services\Notas\Service\Abstractions\" />

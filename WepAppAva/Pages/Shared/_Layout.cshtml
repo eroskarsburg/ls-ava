@@ -18,15 +18,6 @@
 </head>
 <body>
     <script rel="stylesheet" src="@($"{caminhoCompletoArquivoAtual}.js")"></script>
-
-    @RenderSection("SemCabecalho", required: false)
-    @if (!IsSectionDefined("SemCabecalho"))
-    {
-        <div class="containerMenu">
-            @await Html.PartialAsync("Cabecalho")
-        </div>
-    }
-
     <div class="container">
         <main role="main" class="main-container">
             @RenderSection("SemMenu", required: false)

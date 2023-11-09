@@ -1,9 +1,6 @@
 ﻿using Application.Shared.Context;
 using Application.Shared.Entities;
-using Application.Shared.Enum;
 using MySql.Data.MySqlClient;
-using System.Reflection.PortableExecutable;
-using System.Text;
 
 namespace Application.Services.Disciplinas.Repository
 {
@@ -16,8 +13,9 @@ namespace Application.Services.Disciplinas.Repository
             _dbContext = dbContext;
         }
 
-        public static void RetornaDisciplinas()
+        public static Dictionary<int, List<Disciplina>> RetornaDisciplinas()
         {
+            Aluno aluno = new Aluno();
             string sql = "SELECT M.id_mdl_disc, M.nome_modulo, D.id_disciplina, D.id_modulo, D.nome_disciplina, D.requisitos, D.situacao, D.carga_horaria, D.nota FROM modulos M LEFT JOIN disciplinas D ON M.id_mdl_disc = D.id_modulo";
 
             try
@@ -27,7 +25,6 @@ namespace Application.Services.Disciplinas.Repository
                 MySqlDataReader dataReader = cmd.ExecuteReader();
                 while (dataReader.HasRows)
                 {
-                    Aluno aluno = new Aluno();
                     aluno.DisciplinasPorModulo = new Dictionary<int, List<Disciplina>>();
 
                     while (dataReader.Read())
@@ -69,6 +66,7 @@ namespace Application.Services.Disciplinas.Repository
                     }
                 }
                 dataReader.Close();
+                return aluno.DisciplinasPorModulo!;
             }
             catch (Exception e) { throw new Exception(e.Message); }
             finally { DbContext.CloseConnection(); }

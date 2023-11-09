@@ -8,9 +8,9 @@ namespace Application.Services.Alunos.Service
     public class AlunoService : IAlunoService
     {
         private readonly AlunoRepository _alunoRepository;
-        private readonly DisciplinaRepository _usuarioRepository;
+        private readonly UsuarioRepository _usuarioRepository;
 
-        public AlunoService(AlunoRepository alunoRepository, DisciplinaRepository usuarioRepository)
+        public AlunoService(AlunoRepository alunoRepository, UsuarioRepository usuarioRepository)
         {
             _alunoRepository = alunoRepository;
             _usuarioRepository = usuarioRepository;

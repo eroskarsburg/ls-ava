@@ -1,33 +1,27 @@
 ﻿@page
-@model UsuarioModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "Disciplinas";
 }
 
 <link rel="stylesheet" href="~/css/login/login.css">
 <div class="text-center dimention">
-    <h1 class="display-4">Usuários</h1>
-    <p></p>
+    <div class="dft-header-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
     <div id="container-table">
         <table id="tblResultado">
             <thead>
                 <tr>
-                    @if (contemUsuario)
-                    {
-                        <th data-orderable="false">Id</th>
-                        <th data-orderable="false">Nome</th>
-                        <th data-orderable="false">Login</th>
-                        <th data-orderable="false">Nivel de Acesso</th>
-                    }
-                    else
-                    {
-                        <th data-orderable="false"></th>
-                    }
+                    <th data-orderable="false">Id</th>
+                    <th data-orderable="false">Nome</th>
+                    <th data-orderable="false">Login</th>
+                    <th data-orderable="false">Nivel de Acesso</th>
+                    <th data-orderable="false"></th>
                     <th data-orderable="false"></th>
                 </tr>
             </thead>
             <tbody>
-                @if (contemUsuario)
+                @* @if (contemUsuario)
                 {
                     @foreach (var usuarios in Model.Usuarios)
                     {
@@ -46,7 +40,7 @@
                         <td>Sem projetos cadastrados no momento</td>
                         <td><button class="btn" onclick="">Detalhes</button></td>
                     </tr>
-                }
+                } *@
             </tbody>
         </table>
     </div>

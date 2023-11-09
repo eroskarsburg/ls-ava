@@ -1,19 +1,21 @@
 ﻿@page
-@model UsuarioModel
+@model HistoricoModel
 @{
     ViewData["Title"] = "Histórico";
+    bool contemDisciplinas = Model.DisciplinasPorModulo!.Count > 0;
 }
 
 <link rel="stylesheet" href="~/css/login/login.css">
 <div class="text-center dimention">
-    <h1 class="display-4">Usuários</h1>
-    <p></p>
+    <div class="dft-header-title">
+        <h1>@ViewData["Title"]</h1>
+    </div>
     <div id="container-table">
         <table id="tblResultado">
             <tbody>
-                @if (contemUsuario)
+                @if (contemDisciplinas)
                 {
-                    @foreach (var modulo in Aluno.Modulos)
+                    @foreach (var modulo in Model.DisciplinasPorModulo)
                     {
                         <tr>
                             <td><span>Módulo </span>modulo.Id</td>
@@ -26,18 +28,18 @@
                             <td>Carga Horária</td>
                             <td>Nota</td>
                         </tr>
-                        @foreach (var disciplina in Aluno.Disciplinas)
+                        @foreach (var disciplina in modulo.Value)
                         {
-                            @if (disciplina.IdModulo == modulo.Id)
-                            {
-                                <tr>
-                                    <td>disciplina.Nome</td>
-                                    <td>disciplina.Requisitos</td>
-                                    <td>disciplina.Situacao</td>
-                                    <td>disciplina.CargaHoraria</td>
-                                    <td>disciplina.Nota</td>
-                                </tr>
-                            }
+                            <tr>
+                                <td>disciplina.Nome</td>
+                                <td>disciplina.Requisitos</td>
+                                <td>disciplina.Situacao</td>
+                                <td>disciplina.CargaHoraria</td>
+                                <td>disciplina.Nota</td>
+                            </tr>
+                            @* @if (disciplina.IdModulo == modulo.Id)
+                {
+                } *@
                         }
                     }
                 }
